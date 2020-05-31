@@ -12,7 +12,10 @@ var orm = {
         return connection.query(queryString,[table,cols,vals]);
     },
 
-
+    update: function(table, cols, condition) {
+        var queryString = "UPDATE ?? SET ? WHERE ?";
+        return connection.query(queryString, [table, cols, condition])
+      },
 
 
 

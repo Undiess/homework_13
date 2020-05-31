@@ -22,7 +22,8 @@
 <ul> 
     {{#each hamburger}}
         {{#unless eaten }}
-            <li>{{name}}</li>
+            <li>{{name}}<button class="eat" data-id="{{id}}">Eat</button></li> 
+            
          {{/unless }}
     {{/each}}
         

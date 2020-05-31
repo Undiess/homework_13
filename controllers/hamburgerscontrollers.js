@@ -11,10 +11,27 @@ router.get("/",function (req,res){
     });
 });
 
-router.post("/api/cats",function(req,res){
+router.post("/api/hamburgers",function(req,res){
     console.log(req.body.name);
-    console.log("got it ")
+    hamburger.create("name",(req.body.name));
     res.send();
+});
+
+router.put("/api/hamburgers/:id",function(req,res){
+    var ID = {id: req.params.id}
+    var condition = {eaten:true}
+    hamburger.update(condition,ID)
+    .then(result => {
+        if (result.changedRows == 0) {
+          // If no rows were changed, then the ID must not exist, so 404
+          res.status(404).end();
+        }
+        else {
+          res.status(200).end();
+        }
+      });
+      
+    
 })
 
 
