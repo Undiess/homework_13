@@ -4,7 +4,11 @@
 <h2>Hamburgers not eaten</h2>
 
 <ul> 
-    {{#each Hamburger}}
+    {{#each hamburger}}
+        {{#if eaten }}
+            <li>{{name}}</li>
+         {{/if }}
+    {{/each}}
         
 
 
@@ -14,3 +18,23 @@
 
 
 <h2>Hamburgers eaten</h2>
+
+<ul> 
+    {{#each hamburger}}
+        {{#unless eaten }}
+            <li>{{name}}</li>
+         {{/unless }}
+    {{/each}}
+        
+
+
+</ul>
+
+<h2> Add a hamburger </h2>
+<form> 
+    <input type="text" id= "nameham">
+    <button class= "addhamburger" type="submit"> Add a hamburger </button>
+
+
+
+</form>
